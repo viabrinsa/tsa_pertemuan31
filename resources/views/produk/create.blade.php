@@ -10,7 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <div class="conatiner">
         <h3>Tambah produk</h3>
-        <form method="post" action="/produk" enctype="multipart/form-data">
+        <form method="post" action="{{route('tambahproduk')}}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-floating mb-3">
                 <input name="namaproduk" type="text" class="form-control" id="namaproduk" placeholder="Nama Produk">

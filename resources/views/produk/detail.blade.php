@@ -10,51 +10,30 @@
             border: 1px solid black;
         }
 
-        thead {
-            background-color: #0000FF;
+        td {
+            background-color: #fff;
         }
     </style>
 </head>
 
 <body>
-    <h2>Detail Produk</h2>
+    <a href="{{route('create')}}" class="btn btn-secondary mt-3">Tambah produk</a>
     <table>
         <thead>
             <tr>
-                <td>No</td>
                 <td>Nama Produk</td>
                 <td>Deskripsi</td>
                 <td>Gambar Produk</td>
             </tr>
-        </thead>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "tsa_31";
-
-        //Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        ?>
-
-        <?php
-        $no = 1;
-        $query = mysqli_query($conn, 'SELECT * FROM produk');
-        while ($data = mysqli_fetch_array($query)) {
-        ?>
+            @foreach($data as $daftar)
             <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $data['namaproduk'] ?></td>
-                <td><?php echo $data['deskripsi'] ?></td>
-                <td><img src="<?php echo $data['gambar'] ?>" width="300" height="200"></td>
+                <td>{{$daftar->namaproduk}}</td>
+                <td>{{$daftar->deskripsi}}</td>
+                <td><img class="img-preview img-fluid" src="{{ url('/produk/'.$daftar->gambar) }}" 
+                style="max-width: 100px;"></td>
             </tr>
-        <?php } ?>
+            @endforeach
     </table>
 </body>
 
 </html>
-<?php $conn->close(); ?>

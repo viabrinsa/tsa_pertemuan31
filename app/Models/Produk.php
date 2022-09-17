@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     protected $table = 'produk';
-    protected $visiblie = ['id', 'namaproduk', 'deskripsi', 'gambar', 'create_at'];
+    protected $visiblie = ['id'];
 }
